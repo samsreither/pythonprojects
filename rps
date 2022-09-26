@@ -1,0 +1,28 @@
+#rps
+import math
+import random
+
+#function to get inputs from user and comp
+
+def play():
+    user_choice = str(input("Rock (R), Paper (P), Scissors (S)?: ").lower())
+    comp_choice = random.choice(['R','P','S']).lower()
+    print(f"user choice is {user_choice}")
+    print(f"comp choice is {comp_choice}")
+    
+    if user_choice == comp_choice:
+        return "Its a tie"
+    
+    if is_win(user_choice, comp_choice):
+        return "You win!"
+
+    return "You lose..."
+
+#function to determine the winner
+
+def is_win(player, opponent):
+    if (player == 'r' and opponent == 's') or (player == 's' and opponent == 'p') or (player == 'p' and opponent == 'r'):
+        return True
+    
+    
+print(play())
