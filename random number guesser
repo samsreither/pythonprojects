@@ -1,0 +1,36 @@
+# guess the number. you're trying to guess the random number that the computer has chosen
+
+import math
+import random
+#computer picks a number. feedback given based on your guess.
+def guess(x):
+    randomnum = random.randint(1,x)
+    guess = 0
+    while guess != randomnum:
+        guess = int(input(f"Guess a number from 1 to {x}: "))
+        if guess > randomnum:
+            print('That is too high. Guess again.')
+        elif guess < randomnum:
+            print('That is too low. Guess again.')
+        
+    print(f"Congrats you guessed the random number of {randomnum} correctly")
+        
+# now the computer will try to guess the number that you have chosen. you will give the comp. feedback on its guess
+
+def computer_guess(x):
+    low = 1
+    high = x
+    feedback = ''
+    while feedback != 'c':
+        if low != high:
+            guess = random.randint(low,high)
+        else:
+            guess = low
+            
+        feedback = input(f"Is {guess} too high (H) too low (L) or correct (c)?: ").lower()
+        if feedback == "h":
+            high = guess - 1
+        elif feedback == "l":
+            low = guess + 1
+        
+    print(f"The computer has guessed your number of {guess} correctly")
