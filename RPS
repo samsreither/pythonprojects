@@ -1,0 +1,51 @@
+#rock paper scissors, winner is the first person to two wins, asks player if they want to play again after each match
+import random
+
+playagain = True
+winner = False
+
+#takes user input, comp picks one of them
+def rps():
+    userwins = 0
+    compwins = 0
+    
+    while playagain:
+        
+        user = str(input('Rock (R), Paper (P), Scissors (S)?: ')).upper()
+        comp = random.choice(['R','P','S'])
+        print(f'You have chosen {user} and computer has chosen {comp}')
+    
+#compare and determine a winner
+        if user == comp:
+            print("Tie.")
+    
+        elif (user == 'R' and comp == 'S') or (user == 'S' and comp == 'P') or (user == 'P' and comp == 'R'):
+            userwins = userwins + 1
+            print("You win.")
+        
+        else:
+            compwins = compwins + 1
+            print("You lose.")
+            
+        print(f"User Win Count: {userwins}")
+        print(f"Comp Win Count: {compwins}")
+        
+        if userwins == 2:
+            print('You are the first to two! Game over!')
+            break
+        elif compwins == 2:
+            print('Comp is the first to two wins... Game over.')
+            break
+        
+        while True:
+            response = str(input("Would you like to play again?(Y/N): ")).upper()
+            if response == "Y" or response == "N":
+                break
+            else:
+                print("That wasn't an option. Please choose again.")
+        
+        if response == "N":
+            print("Ok the game is over.")
+            break
+        
+rps()
