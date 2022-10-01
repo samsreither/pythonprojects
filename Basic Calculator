@@ -1,0 +1,42 @@
+#basic calculator
+
+def add(x, y):
+    return x + y
+    
+def subtract(x, y):
+    return x - y
+    
+def multiply(x, y):
+    return x * y
+    
+def divide(x, y):
+    return x / y
+    
+print("Starting up calculator...")
+
+while True:
+    choice = input("Add(A), Subtract(S), Multiply(M), Divide(D): ").upper()
+    if choice in ["A","S","M","D"]:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        
+        if choice == "A":
+            print(f"{num1} + {num2} is {add(num1, num2)}")
+        
+        elif choice == "S":
+            print(f"{num1} - {num2} is {subtract(num1, num2)}")
+        
+        elif choice == "M":
+            print(f"{num1} * {num2} is {multiply(num1, num2)}")
+        
+        elif choice == "D":
+            print(f"{num1} / {num2} is {divide(num1, num2)}")
+            
+        nextcalc = input("Do you want to do another calc?: ").upper()
+        
+        if nextcalc == "N":
+            print("Ok you're done...")
+            break
+        
+    else:
+        print("Invalid input...")
